@@ -44,6 +44,7 @@ import RemoveImage from "@app/tools/RemoveImage";
 import CertSign from "@app/tools/CertSign";
 import BookletImposition from "@app/tools/BookletImposition";
 import Flatten from "@app/tools/Flatten";
+import TextOutlining from "@app/tools/TextOutlining";
 import Rotate from "@app/tools/Rotate";
 import PdfTextEditor from "@app/tools/pdfTextEditor/PdfTextEditor";
 import ChangeMetadata from "@app/tools/ChangeMetadata";
@@ -72,6 +73,7 @@ import { mergeOperationConfig } from '@app/hooks/tools/merge/useMergeOperation';
 import { editTableOfContentsOperationConfig } from '@app/hooks/tools/editTableOfContents/useEditTableOfContentsOperation';
 import { autoRenameOperationConfig } from "@app/hooks/tools/autoRename/useAutoRenameOperation";
 import { flattenOperationConfig } from "@app/hooks/tools/flatten/useFlattenOperation";
+import { textOutliningOperationConfig } from "@app/hooks/tools/textOutlining/useTextOutliningOperation";
 import { redactOperationConfig } from "@app/hooks/tools/redact/useRedactOperation";
 import { rotateOperationConfig } from "@app/hooks/tools/rotate/useRotateOperation";
 import { changeMetadataOperationConfig } from "@app/hooks/tools/changeMetadata/useChangeMetadataOperation";
@@ -246,7 +248,7 @@ export function useTranslatedToolCatalog(): TranslatedToolCatalog {
         synonyms: getSynonyms(t, 'addImage'),
         supportsAutomate: false,
       },
-
+      
       // Document Security
 
       addPassword: {
@@ -313,6 +315,19 @@ export function useTranslatedToolCatalog(): TranslatedToolCatalog {
         operationConfig: flattenOperationConfig,
         automationSettings: FlattenSettings,
         synonyms: getSynonyms(t, "flatten")
+      },
+      textOutlining: {
+        icon: <LocalIcon icon="material-symbols:text-fields-alt-rounded" width="1.5rem" height="1.5rem" />,
+        name: t("home.textOutlining.title", "Text Outlining"),
+        component: TextOutlining,
+        description: t("home.textOutlining.desc", "Convert text to vector outlines for consistent display"),
+        categoryId: ToolCategoryId.STANDARD_TOOLS,
+        subcategoryId: SubcategoryId.DOCUMENT_SECURITY,
+        maxFiles: -1,
+        endpoints: ["text-outlining"],
+        operationConfig: textOutliningOperationConfig,
+        automationSettings: null,
+        synonyms: getSynonyms(t, "textOutlining"),
       },
       unlockPDFForms: {
         icon: <LocalIcon icon="preview-off-rounded" width="1.5rem" height="1.5rem" />,

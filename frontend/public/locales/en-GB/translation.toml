@@ -678,6 +678,11 @@ tags = "shrink,reduce,optimize"
 title = "Compress"
 desc = "Compress PDFs to reduce their file size."
 
+[home.textOutlining]
+tags = "outline,fonts,convert,vector"
+title = "Text Outlining"
+desc = "Convert text to vector outlines for consistent display across all systems."
+
 [home.unlockPDFForms]
 tags = "unlock,enable,edit"
 title = "Unlock PDF Forms"
@@ -3731,6 +3736,47 @@ failed = "An error occurred while compressing the PDF."
 [compress.selectText.1]
 _value = "Compression Settings"
 1 = "1-3 PDF compression,</br> 4-6 lite image compression,</br> 7-9 intense image compression Will dramatically reduce image quality"
+
+[textOutlining]
+title = "Text Outlining"
+desc = "Convert text to vector outlines for consistent display across all systems."
+submit = "Convert to Outlines"
+filenamePrefix = "outlined"
+
+[textOutlining.files]
+placeholder = "Select PDF files to convert text to outlines"
+
+[textOutlining.steps]
+info = "Information"
+
+[textOutlining.options]
+note = "This tool converts all text in your PDF to vector outlines. Text will look the same but will no longer be selectable or editable. This ensures your document looks identical on any computer, regardless of installed fonts."
+
+[textOutlining.results]
+title = "Text Outlining Results"
+
+[textOutlining.error]
+failed = "An error occurred while converting text to outlines."
+
+[textOutlining.tooltip.header]
+title = "Text Outlining Overview"
+
+[textOutlining.tooltip.description]
+title = "What does this do?"
+text = "Converts all text in your PDF into vector shapes (outlines). The text will look exactly the same, but it becomes part of the page graphics rather than actual text."
+bullet1 = "Text appearance is preserved perfectly"
+bullet2 = "No font dependencies - looks the same everywhere"
+
+[textOutlining.tooltip.whenToUse]
+title = "When should I use this?"
+text = "Use this when you need to ensure your PDF looks identical on any computer, or when sharing documents that use special fonts others may not have installed."
+bullet1 = "Sharing with others who may lack your fonts"
+bullet2 = "Preparing files for professional printing"
+bullet3 = "Creating final versions that shouldn't be edited"
+
+[textOutlining.tooltip.note]
+title = "Important Note"
+text = "After conversion, text cannot be selected, searched, or edited. This is a one-way process, so keep your original file if you need to make changes later."
 
 [decrypt]
 passwordPrompt = "This file is password-protected. Please enter the password:"
