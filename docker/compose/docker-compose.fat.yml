@@ -14,8 +14,8 @@ services:
       interval: 5s
       timeout: 10s
       retries: 16
-    ports:
-      - "8080:8080"  # TODO: Remove in production - for debugging only
+    #ports:
+    #  - "8080:8080"  # TODO: Remove in production - for debugging only
     expose:
       - "8080"
     volumes:
@@ -24,16 +24,16 @@ services:
       - ../../stirling/latest/logs:/logs:rw
     environment:
       DISABLE_ADDITIONAL_FEATURES: "false"
-      SECURITY_ENABLELOGIN: "false"
+      SECURITY_ENABLELOGIN: "true"
       FAT_DOCKER: "true"
       SYSTEM_DEFAULTLOCALE: en-US
-      UI_APPNAME: Stirling-PDF
-      UI_HOMEDESCRIPTION: Full-featured Stirling-PDF with all capabilities
-      UI_APPNAMENAVBAR: Stirling-PDF Fat
-      SYSTEM_MAXFILESIZE: "200"
+      UI_APPNAME: PDF-Tools
+      UI_HOMEDESCRIPTION: Full-featured PDF-Tools with all capabilities
+      UI_APPNAMENAVBAR: PDF-Tools Fat
+      SYSTEM_MAXFILESIZE: "1000"
       METRICS_ENABLED: "true"
-      SYSTEM_GOOGLEVISIBILITY: "true"
-      SHOW_SURVEY: "true"
+      SYSTEM_GOOGLEVISIBILITY: "false"
+      SHOW_SURVEY: "false"
     networks:
       - stirling-network
 

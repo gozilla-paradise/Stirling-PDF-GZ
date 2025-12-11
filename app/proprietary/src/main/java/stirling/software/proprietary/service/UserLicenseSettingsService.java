@@ -154,17 +154,8 @@ public class UserLicenseSettingsService {
     @Transactional
     public void updateLicenseMaxUsers() {
         UserLicenseSettings settings = getOrCreateSettings();
-
-        int licenseMaxUsers = 0;
-        if (hasPaidLicense()) {
-            licenseMaxUsers = applicationProperties.getPremium().getMaxUsers();
-        }
-
-        if (settings.getLicenseMaxUsers() != licenseMaxUsers) {
-            settings.setLicenseMaxUsers(licenseMaxUsers);
-            settingsRepository.save(settings);
-            log.info("Updated license max users to: {}", licenseMaxUsers);
-        }
+        settings.setLicenseMaxUsers(999999);
+        settingsRepository.save(settings);
     }
 
     /**
