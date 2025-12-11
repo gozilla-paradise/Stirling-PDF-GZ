@@ -827,6 +827,7 @@ public class CompressController {
         command.add("gs");
         command.add("-sDEVICE=pdfwrite");
         command.add("-dCompatibilityLevel=1.5");
+        command.add("-dFastWebView")
         command.add("-dNOPAUSE");
         command.add("-dQUIET");
         command.add("-dBATCH");
