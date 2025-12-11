@@ -30,7 +30,7 @@ services:
       UI_APPNAME: PDF-Tools
       UI_HOMEDESCRIPTION: Full-featured PDF-Tools with all capabilities
       UI_APPNAMENAVBAR: PDF-Tools Fat
-      SYSTEM_MAXFILESIZE: "1000"
+      SYSTEM_MAXFILESIZE: "2000"
       METRICS_ENABLED: "true"
       SYSTEM_GOOGLEVISIBILITY: "false"
       SHOW_SURVEY: "false"

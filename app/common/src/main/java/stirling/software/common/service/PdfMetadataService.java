@@ -113,6 +113,8 @@ public class PdfMetadataService {
     private void setNewDocumentMetadata(PDDocument pdf, PdfMetadata pdfMetadata) {
 
         String creator = stirlingPDFLabel;
+        String author = stirlingPDFLabel;
+        String producer = stirlingPDFLabel;
 
         if (applicationProperties
                         .getPremium()
@@ -127,10 +129,25 @@ public class PdfMetadataService {
                             .getProFeatures()
                             .getCustomMetadata()
                             .getCreator();
-            pdf.getDocumentInformation().setProducer(stirlingPDFLabel);
-        }
+            
+            author =
+                    applicationProperties
+                            .getPremium()
+                            .getProFeatures()
+                            .getCustomMetadata()
+                            .getAuthor();
 
+            producer =
+                    applicationProperties
+                            .getPremium()
+                            .getProFeatures()
+                            .getCustomMetadata()
+                            .getProducer();
+        }
+        
+        pdf.getDocumentInformation().setProducer(producer);
         pdf.getDocumentInformation().setCreator(creator);
+        pdf.getDocumentInformation().setAuthor(author);
 
         // Use existing creation date if available, otherwise create new one
         Calendar creationCal =
@@ -143,7 +160,6 @@ public class PdfMetadataService {
     private void setCommonMetadata(PDDocument pdf, PdfMetadata pdfMetadata) {
         String title = pdfMetadata.getTitle();
         pdf.getDocumentInformation().setTitle(title);
-        pdf.getDocumentInformation().setProducer(stirlingPDFLabel);
         pdf.getDocumentInformation().setSubject(pdfMetadata.getSubject());
         pdf.getDocumentInformation().setKeywords(pdfMetadata.getKeywords());
 
@@ -155,12 +171,16 @@ public class PdfMetadataService {
         pdf.getDocumentInformation().setModificationDate(modificationCal);
 
         String author = pdfMetadata.getAuthor();
+        String creator = stirlingPDFLabel;
+        String producer = stirlingPDFLabel;
+
         if (applicationProperties
                         .getPremium()
                         .getProFeatures()
                         .getCustomMetadata()
                         .isAutoUpdateMetadata()
                 && runningProOrHigher) {
+
             author =
                     applicationProperties
                             .getPremium()
@@ -168,10 +188,23 @@ public class PdfMetadataService {
                             .getCustomMetadata()
                             .getAuthor();
 
-            if (userService != null) {
-                author = author.replace("username", userService.getCurrentUsername());
-            }
+            creator =
+                    applicationProperties
+                            .getPremium()
+                            .getProFeatures()
+                            .getCustomMetadata()
+                            .getCreator();
+
+            producer =
+                    applicationProperties
+                            .getPremium()
+                            .getProFeatures()
+                            .getCustomMetadata()
+                            .getProducer();
+            
         }
         pdf.getDocumentInformation().setAuthor(author);
+        pdf.getDocumentInformation().setCreator(creator);
+        pdf.getDocumentInformation().setProducer(producer);
     }
 }
