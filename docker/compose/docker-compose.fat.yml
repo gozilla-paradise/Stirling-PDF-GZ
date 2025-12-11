@@ -29,7 +29,7 @@ services:
       SYSTEM_DEFAULTLOCALE: en-US
       UI_APPNAME: PDF-Tools
       UI_HOMEDESCRIPTION: Full-featured PDF-Tools with all capabilities
-      UI_APPNAMENAVBAR: PDF-Tools Fat
+      UI_APPNAMENAVBAR: PDF-Tools
       SYSTEM_MAXFILESIZE: "2000"
       METRICS_ENABLED: "true"
       SYSTEM_GOOGLEVISIBILITY: "false"
