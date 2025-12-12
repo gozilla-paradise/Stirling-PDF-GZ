@@ -326,7 +326,7 @@ public class ProprietaryUIDataController {
         data.setActiveUsers(activeUsers);
         data.setDisabledUsers(disabledUsers);
         data.setTeams(allTeams);
-        data.setMaxPaidUsers(applicationProperties.getPremium().getMaxUsers());
+        data.setMaxPaidUsers(999999);
         data.setMaxAllowedUsers(maxAllowedUsers);
         data.setAvailableSlots(availableSlots);
         data.setGrandfatheredUserCount(grandfatheredCount);

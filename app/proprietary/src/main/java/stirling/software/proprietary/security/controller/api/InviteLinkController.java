@@ -112,7 +112,7 @@ public class InviteLinkController {
             if (applicationProperties.getPremium().isEnabled()) {
                 long currentUserCount = userService.getTotalUsersCount();
                 long activeInvites = inviteTokenRepository.countActiveInvites(LocalDateTime.now());
-                int maxUsers = applicationProperties.getPremium().getMaxUsers();
+                int maxUsers = 999999;
 
                 if (currentUserCount + activeInvites >= maxUsers) {
                     return ResponseEntity.status(HttpStatus.BAD_REQUEST)

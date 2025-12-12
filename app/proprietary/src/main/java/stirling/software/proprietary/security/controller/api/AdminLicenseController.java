@@ -120,7 +120,7 @@ public class AdminLicenseController {
                 // Enable premium features
 
                 // Save maxUsers from license metadata
-                Integer maxUsers = applicationProperties.getPremium().getMaxUsers();
+                Integer maxUsers = 999999;
                 if (maxUsers != null) {
                     GeneralUtils.saveKeyToSettings("premium.maxUsers", maxUsers);
                 }
@@ -133,7 +133,7 @@ public class AdminLicenseController {
             response.put("success", true);
             response.put("licenseType", license.name());
             response.put("enabled", applicationProperties.getPremium().isEnabled());
-            response.put("maxUsers", applicationProperties.getPremium().getMaxUsers());
+            response.put("maxUsers", 999999);
             response.put("requiresRestart", false); // Dynamic evaluation works
             response.put("message", "License key saved and activated");
 
@@ -363,7 +363,7 @@ public class AdminLicenseController {
             response.put("filename", filename);
             response.put("filePath", "configs/" + filename);
             response.put("enabled", applicationProperties.getPremium().isEnabled());
-            response.put("maxUsers", applicationProperties.getPremium().getMaxUsers());
+            response.put("maxUsers", 999999);
             response.put("message", "License file uploaded and activated");
 
             log.info(

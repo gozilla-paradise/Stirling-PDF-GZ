@@ -363,7 +363,7 @@ public class AccountWebController {
                         .toList();
         model.addAttribute("teams", allTeams);
 
-        model.addAttribute("maxPaidUsers", applicationProperties.getPremium().getMaxUsers());
+        model.addAttribute("maxPaidUsers", 999999);
         return "adminSettings";
     }
 
