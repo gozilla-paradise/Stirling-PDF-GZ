@@ -222,7 +222,6 @@ export default function InviteMembersModal({ opened, onClose, onSuccess }: Invit
         sendEmail: inviteLinkForm.sendEmail,
       });
       setGeneratedInviteLink(response.inviteUrl);
-      onSuccess?.();
       if (inviteLinkForm.sendEmail && inviteLinkForm.email) {
         alert({ alertType: 'success', title: t('workspace.people.inviteLink.emailSent', 'Invite link generated and sent via email') });
       }
